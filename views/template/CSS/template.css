@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.template-header{
+    width: 100vw;
+    max-width: 100%;
+}
+
+.header-nav{
+    display: flex;
+    height: 90px;
+    align-items: center;
+    border-bottom: 1px solid #AC8B68;
+}
+.header-logo{
+    background: url('/img/logo.png') no-repeat;
+    background-size: contain;
+    width: 150px;
+    height: 90px;
+    margin: 0 120px 0 15px;
+    
+}
+.flexBox{
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+}
+.nav-link{
+    padding-right: 100px;
+}

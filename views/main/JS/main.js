@@ -1,18 +1,17 @@
 const pageBtn = document.querySelectorAll('.fa-circle');
 const slideAll = document.querySelectorAll('.slide-container');
 const slide = document.querySelector('.slide-container');
+const container = document.querySelectorAll('.container');
 
-if (slideAll[0].classList[1] == 'activity') {
-    setTimeout(function() {
-        slideTwo();
-    }, 2000)
-}
-if (slideAll[1].classList[1] == 'activity') {
-    setTimeout(function() {
-        slideThree();
-    }, 2000)
-}
-console.log(slideAll[1].classList);
+let pos = 0;
+
+let pass = setInterval(_ => {
+    slideAll[pos].classList.remove('activity');
+    pageBtn[pos].classList.remove('toggle');
+    pos = (pos + 1) % slideAll.length;
+    slideAll[pos].className += ' activity';
+    pageBtn[pos].className += ' toggle';
+}, 4000)
 
 function slideOne() {
     for (let i = 0; i < slideAll.length; i++) {
@@ -27,6 +26,7 @@ function slideOne() {
         slideAll[0].className += " activity";
         pageBtn[0].className += " toggle";
     }
+    clearInterval(pass);
 }
 
 function slideTwo() {
@@ -42,6 +42,7 @@ function slideTwo() {
         slideAll[1].className += " activity";
         pageBtn[1].className += " toggle";
     }
+    clearInterval(pass);
 }
 
 function slideThree() {
@@ -57,6 +58,7 @@ function slideThree() {
         slideAll[2].className += " activity";
         pageBtn[2].className += " toggle";
     }
+    clearInterval(pass);
 }
 
 function slideFour() {
@@ -72,40 +74,10 @@ function slideFour() {
         slideAll[3].className += " activity";
         pageBtn[3].className += " toggle";
     }
+    clearInterval(pass);
 }
 
 pageBtn[0].addEventListener('click', slideOne);
 pageBtn[1].addEventListener('click', slideTwo);
 pageBtn[2].addEventListener('click', slideThree);
 pageBtn[3].addEventListener('click', slideFour);
-
-
-// let i = slideAll.length - 1;
-
-// pageBtn[0].addEventListener('click', ()=>{
-//     pageBtn[0].style.color = '#fff';
-//     slideAll[0].style.opacity = '1';
-//     slideAll[1].style.opacity = '0';
-//     slideAll[0].style.transition = '.3s';
-// })
-
-// pageBtn[1].addEventListener('click', ()=>{
-//     pageBtn[1].style.color = '#fff';
-//     slideAll[1].style.opacity = '1';
-//     slideAll[2].style.opacity = '0';
-//     slideAll[1].style.transition = '.3s';
-// })
-
-// pageBtn[2].addEventListener('click', ()=>{
-//     pageBtn[2].style.color = '#fff';
-//     slideAll[2].style.opacity = '1';
-//     slideAll[3].style.opacity = '0';
-//     slideAll[2].style.transition = '.3s';
-// })
-
-// pageBtn[3].addEventListener('click', ()=>{
-//     pageBtn[3].style.color = '#fff';
-//     slideAll[3].style.opacity = '1';
-//     slideAll[0].style.opacity = '0';
-//     slideAll[3].style.transition = '.3s';
-// })
